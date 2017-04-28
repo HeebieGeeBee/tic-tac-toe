@@ -57,6 +57,7 @@ body {
   margin: auto;
   font-size: 0px;
   margin-top: 10%;
+  display: none;
 }
 
 .footer {
