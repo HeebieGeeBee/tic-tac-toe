@@ -7,6 +7,11 @@
 /*                                              */
 /*______________________________________________*/
 
+
+/********************/
+/*  Window On Load  */
+/*__________________*/
+
 window.onload = function(){
 
 /********************/
@@ -32,6 +37,7 @@ const color2 = document.getElementById('color-E8AB1D');
 const color3 = document.getElementById('color-FF2C44');
 const color4 = document.getElementById('color-201DE8');
 const color5 = document.getElementById('color-20979F');
+const gameBoard = document.getElementById('game-board')
 const winLines = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
 const game = {
   squaresAvailable:[1,2,3,4,5,6,7,8,9],
@@ -47,14 +53,6 @@ clickSound.src = "http://www.soundjay.com/button/sounds/button-21.mp3";
 const compSound = new Audio();
 compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
 
-/********************/
-/*  Window On Load  */
-/*__________________*/
-
-
-
-
-
   /*********************/
   /*  Event Listeners  */
   /*___________________*/
@@ -66,6 +64,8 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
     game.compColor = "#20979F";
     clickSound.play();
     newGameModal.style.display = "none";
+    gameBoard.style.display = 'block';
+
   })
   
   color2.addEventListener('mousedown' || 'touchstart', function() {
@@ -73,6 +73,8 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
     game.compColor = "#201DE8";
     clickSound.play();
     newGameModal.style.display = "none";
+    gameBoard.style.display = 'block';
+
   })
   
   color3.addEventListener('mousedown' || 'touchstart', function() {
@@ -80,6 +82,8 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
     game.compColor = "#7FFF66";
     clickSound.play();
     newGameModal.style.display = "none";
+    gameBoard.style.display = 'block';
+
   })
   
   color4.addEventListener('mousedown' || 'touchstart', function() {
@@ -87,6 +91,8 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
     game.compColor = "#E8AB1D";
     clickSound.play();
     newGameModal.style.display = "none";
+    gameBoard.style.display = 'block';
+
   })
   
   color5.addEventListener('mousedown' || 'touchstart', function() {
@@ -94,6 +100,8 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
     game.compColor = "#FF2C44";
     clickSound.play();
     newGameModal.style.display = "none";
+    gameBoard.style.display = 'block';
+
   })
   
   /*  Game Board  */
@@ -373,6 +381,7 @@ function winCheck(){
           if(game.playerSquares.indexOf(winLines[i][j]) !== -1) {
             winCount++;
             if(winCount === 3) {
+              gameBoard.style.display = 'none';
               winModal.style.display = 'block';
               winModal.innerHTML = '<h1>You Win!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
               winModal.style.color = 'white';
@@ -394,11 +403,14 @@ function winCheck(){
           if(game.computersSquares.indexOf(winLines[i][j]) !== -1) {
             winCount++;
             if(winCount === 3) {
-              winModal.style.display = 'block';
-              winModal.innerHTML = '<h1>You Lose!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
-              winModal.style.color = 'white';
-              document.getElementById('resetter').addEventListener('mousedown', reset);
-              return;
+              setTimeout(function(){
+                gameBoard.style.display = 'none';
+                winModal.style.display = 'block';
+                winModal.innerHTML = '<h1>You Lose!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
+                winModal.style.color = 'white';
+                document.getElementById('resetter').addEventListener('mousedown', reset);
+                return;
+                },500)
             }
           }
         }
@@ -409,11 +421,14 @@ function winCheck(){
     // If Niether Wins Check For Draw
   
     if (game.squaresAvailable.length === 0) {
-      winModal.style.display = 'block';
-      winModal.innerHTML = '<h1>Its a Draw!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
-      winModal.style.color = 'white';
-      document.getElementById('resetter').addEventListener('mousedown', reset);
+      setTimeout(function(){
+        gameBoard.style.display = 'none';
+        winModal.style.display = 'block';
+        winModal.innerHTML = '<h1>Its a Draw!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
+        winModal.style.color = 'white';
+        document.getElementById('resetter').addEventListener('mousedown', reset);
       return;
+      },500)  
     }
 
 
