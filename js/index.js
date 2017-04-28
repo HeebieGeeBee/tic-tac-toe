@@ -7,7 +7,7 @@
 /*                                              */
 /*______________________________________________*/
 
-window.onload = function(){
+
 
 /********************/
 /*  Variable Setup  */
@@ -46,157 +46,165 @@ clickSound.src = "http://www.soundjay.com/button/sounds/button-21.mp3";
 const compSound = new Audio();
 compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
 
-/*********************/
-/*  Event Listeners  */
-/*___________________*/
+/********************/
+/*  Window On Load  */
+/*__________________*/
 
-/*  New Game Color Select  */
 
-color1.addEventListener('mousedown' || 'touchstart', function() {
-  game.playColor = "#7FFF66";
-  game.compColor = "#20979F";
-  clickSound.play();
-  newGameModal.style.display = "none";
-})
+window.onload = function(){
 
-color2.addEventListener('mousedown' || 'touchstart', function() {
-  game.playColor = "#E8AB1D";
-  game.compColor = "#201DE8";
-  clickSound.play();
-  newGameModal.style.display = "none";
-})
 
-color3.addEventListener('mousedown' || 'touchstart', function() {
-  game.playColor = "#FF2C44";
-  game.compColor = "#7FFF66";
-  clickSound.play();
-  newGameModal.style.display = "none";
-})
-
-color4.addEventListener('mousedown' || 'touchstart', function() {
-  game.playColor = "#201DE8";
-  game.compColor = "#E8AB1D";
-  clickSound.play();
-  newGameModal.style.display = "none";
-})
-
-color5.addEventListener('mousedown' || 'touchstart', function() {
-  game.playColor = "#20979F";
-  game.compColor = "#FF2C44";
-  clickSound.play();
-  newGameModal.style.display = "none";
-})
-
-/*  Game Board  */
-
-sq1.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(1) !== -1 && game.playersTurn){
+  /*********************/
+  /*  Event Listeners  */
+  /*___________________*/
+  
+  /*  New Game Color Select  */
+  
+  color1.addEventListener('mousedown' || 'touchstart', function() {
+    game.playColor = "#7FFF66";
+    game.compColor = "#20979F";
     clickSound.play();
-    sq1.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(1), 1);
-    game.playerSquares.push(1);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq2.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(2) !== -1 && game.playersTurn){
+    newGameModal.style.display = "none";
+  })
+  
+  color2.addEventListener('mousedown' || 'touchstart', function() {
+    game.playColor = "#E8AB1D";
+    game.compColor = "#201DE8";
     clickSound.play();
-    sq2.style.backgroundColor = game.playColor; 
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(2), 1);
-    game.playerSquares.push(2);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq3.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(3) !== -1 && game.playersTurn){
+    newGameModal.style.display = "none";
+  })
+  
+  color3.addEventListener('mousedown' || 'touchstart', function() {
+    game.playColor = "#FF2C44";
+    game.compColor = "#7FFF66";
     clickSound.play();
-    sq3.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(3), 1);
-    game.playerSquares.push(3);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq4.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(4) !== -1 && game.playersTurn){
+    newGameModal.style.display = "none";
+  })
+  
+  color4.addEventListener('mousedown' || 'touchstart', function() {
+    game.playColor = "#201DE8";
+    game.compColor = "#E8AB1D";
     clickSound.play();
-    sq4.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(4), 1);
-    game.playerSquares.push(4);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq5.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(5) !== -1 && game.playersTurn){
+    newGameModal.style.display = "none";
+  })
+  
+  color5.addEventListener('mousedown' || 'touchstart', function() {
+    game.playColor = "#20979F";
+    game.compColor = "#FF2C44";
     clickSound.play();
-    sq5.style.backgroundColor = game.playColor; 
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(5), 1);
-    game.playerSquares.push(5);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq6.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(6) !== -1 && game.playersTurn){
-    clickSound.play();
-    sq6.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(6), 1);
-    game.playerSquares.push(6);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq7.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(7) !== -1 && game.playersTurn){
-    clickSound.play();
-    sq7.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(7), 1);
-    game.playerSquares.push(7);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq8.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(8) !== -1 && game.playersTurn){
-    clickSound.play();
-    sq8.style.backgroundColor = game.playColor; 
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(8), 1);
-    game.playerSquares.push(8);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
-sq9.addEventListener('mousedown', function(){
-  if(game.squaresAvailable.indexOf(9) !== -1 && game.playersTurn){
-    clickSound.play();
-    sq9.style.backgroundColor = game.playColor;
-    game.squaresAvailable.splice(game.squaresAvailable.indexOf(9), 1);
-    game.playerSquares.push(9);
-    winCheck();
-    game.playersTurn = false;
-    game.computersTurn = true;
-  }
-});
+    newGameModal.style.display = "none";
+  })
+  
+  /*  Game Board  */
+  
+  sq1.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(1) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq1.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(1), 1);
+      game.playerSquares.push(1);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq2.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(2) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq2.style.backgroundColor = game.playColor; 
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(2), 1);
+      game.playerSquares.push(2);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq3.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(3) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq3.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(3), 1);
+      game.playerSquares.push(3);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq4.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(4) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq4.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(4), 1);
+      game.playerSquares.push(4);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq5.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(5) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq5.style.backgroundColor = game.playColor; 
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(5), 1);
+      game.playerSquares.push(5);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq6.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(6) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq6.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(6), 1);
+      game.playerSquares.push(6);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq7.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(7) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq7.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(7), 1);
+      game.playerSquares.push(7);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq8.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(8) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq8.style.backgroundColor = game.playColor; 
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(8), 1);
+      game.playerSquares.push(8);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  sq9.addEventListener('mousedown', function(){
+    if(game.squaresAvailable.indexOf(9) !== -1 && game.playersTurn){
+      clickSound.play();
+      sq9.style.backgroundColor = game.playColor;
+      game.squaresAvailable.splice(game.squaresAvailable.indexOf(9), 1);
+      game.playerSquares.push(9);
+      winCheck();
+      game.playersTurn = false;
+      game.computersTurn = true;
+    }
+  });
+  
+  /*  Reset Button  */
+  
+  resetBtn.addEventListener('mousedown', function(){
+    reset();
+  });
 
-/*  Reset Button  */
 
-resetBtn.addEventListener('mousedown', function(){
-  reset();
-});
-
-/*  Color Select  */
-
+}
 
 
 /********************/
@@ -406,4 +414,3 @@ function winCheck(){
   
 }
 
-}
