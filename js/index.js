@@ -25,6 +25,7 @@ const sq9 = document.getElementById('sq-9');
 const winModal = document.getElementById('winModal');
 const gameSquares = document.getElementsByClassName('game-square');
 const newGameModal = document.getElementById('newGameModal');
+const resets = document.getElementsByClassName('fa');
 const resetBtn = document.getElementById('reset');
 const color1 = document.getElementById('color-7FFF66');
 const color2 = document.getElementById('color-E8AB1D');
@@ -373,8 +374,9 @@ function winCheck(){
             winCount++;
             if(winCount === 3) {
               winModal.style.display = 'block';
-              winModal.innerHTML = '<h1>You Win!</h1><br/><i class="fa fa-refresh" onclick="reset()"></i>';
+              winModal.innerHTML = '<h1>You Win!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
               winModal.style.color = 'white';
+              document.getElementById('resetter').addEventListener('mousedown', reset);
               return;
             }
           }
@@ -393,8 +395,9 @@ function winCheck(){
             winCount++;
             if(winCount === 3) {
               winModal.style.display = 'block';
-              winModal.innerHTML = '<h1>You Lose!</h1><br/><i class="fa fa-refresh" onclick="reset()"></i>';
+              winModal.innerHTML = '<h1>You Lose!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
               winModal.style.color = 'white';
+              document.getElementById('resetter').addEventListener('mousedown', reset);
               return;
             }
           }
@@ -407,11 +410,13 @@ function winCheck(){
   
     if (game.squaresAvailable.length === 0) {
       winModal.style.display = 'block';
-      winModal.innerHTML = '<h1>Its a Draw!</h1><br/><i class="fa fa-refresh" onclick="reset()"></i>';
+      winModal.innerHTML = '<h1>Its a Draw!</h1><br/><i class="fa fa-refresh" id="resetter"></i>';
       winModal.style.color = 'white';
+      document.getElementById('resetter').addEventListener('mousedown', reset);
       return;
     }
-  
+
+
 }
 
 }
