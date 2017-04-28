@@ -204,7 +204,7 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
   });
 
 
-}
+
 
 
 /********************/
@@ -414,3 +414,4 @@ function winCheck(){
   
 }
 
+}
