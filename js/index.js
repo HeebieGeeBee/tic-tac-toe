@@ -50,35 +50,35 @@ compSound.src = "http://www.soundjay.com/switch/sounds/switch-20.mp3"
 
 /*  New Game Color Select  */
 
-color1.addEventListener('mousedown', function() {
+color1.addEventListener('mousedown' || 'touchstart', function() {
   game.playColor = "#7FFF66";
   game.compColor = "#20979F";
   clickSound.play();
   newGameModal.style.display = "none";
 })
 
-color2.addEventListener('mousedown', function() {
+color2.addEventListener('mousedown' || 'touchstart', function() {
   game.playColor = "#E8AB1D";
   game.compColor = "#201DE8";
   clickSound.play();
   newGameModal.style.display = "none";
 })
 
-color3.addEventListener('mousedown', function() {
+color3.addEventListener('mousedown' || 'touchstart', function() {
   game.playColor = "#FF2C44";
   game.compColor = "#7FFF66";
   clickSound.play();
   newGameModal.style.display = "none";
 })
 
-color4.addEventListener('mousedown', function() {
+color4.addEventListener('mousedown' || 'touchstart', function() {
   game.playColor = "#201DE8";
   game.compColor = "#E8AB1D";
   clickSound.play();
   newGameModal.style.display = "none";
 })
 
-color5.addEventListener('mousedown', function() {
+color5.addEventListener('mousedown' || 'touchstart', function() {
   game.playColor = "#20979F";
   game.compColor = "#FF2C44";
   clickSound.play();
